@@ -78,6 +78,21 @@ public class Restaurant
     {
         return name;
     }
-
+    public int price_of_selected_iteams(List<String> selected_iteams)
+    {
+        int total_price=0;
+        for(int i=0;i<selected_iteams.size();i++)
+        {
+            for(int j=0;j<menu.size();j++)
+            {
+                int nub = selected_iteams.get(i).compareTo(menu.get(j).getName());
+                if (nub == 0)
+                {
+                    total_price += menu.get(j).getPrice();
+                }
+            }
+        }
+        return total_price;
+    }
 
 }

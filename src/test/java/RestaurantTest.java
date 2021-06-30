@@ -76,9 +76,18 @@ class RestaurantTest {
     @Test
     public void price_of_selected_iteams_should_be_displayed()
     {
-
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("veg_puff", 35);
+        restaurant.addToMenu("egg_puff",45);
+        restaurant.addToMenu("veg_roll",80);
+        List<String> iteams_selected = new ArrayList<String>();
+        iteams_selected.add("veg_puff");
+        iteams_selected.add("egg_puff");
+        iteams_selected.add("veg_roll");
         int returned_price=restaurant.price_of_selected_iteams(iteams_selected);
-        assertEquals(80,returned_price);
+        assertEquals(160,returned_price);
     }
 
 }
