@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -69,6 +71,14 @@ class RestaurantTest {
 
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+
+    @Test
+    public void price_of_selected_iteams_should_be_displayed()
+    {
+
+        int returned_price=restaurant.price_of_selected_iteams(iteams_selected);
+        assertEquals(80,returned_price);
     }
 
 }
